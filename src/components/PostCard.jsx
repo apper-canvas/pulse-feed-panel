@@ -18,10 +18,10 @@ const PostCard = ({
   const navigate = useNavigate();
   const [showEditModal, setShowEditModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [liked, setLiked] = useState(false);
+const [liked, setLiked] = useState(post.isLiked || false);
   const [likeCount, setLikeCount] = useState(post.likes || 0);
   const [selectedReaction, setSelectedReaction] = useState(null);
-
+  const [imageLoading, setImageLoading] = useState({});
   const reactions = [
     { emoji: '❤️', name: 'love', color: '#EF4444' },
     { emoji: '👍', name: 'like', color: '#3B82F6' },
@@ -31,24 +31,33 @@ const PostCard = ({
   ];
 
   const handleLike = async () => {
-    try {
+try {
       const newLiked = !liked;
       const newCount = newLiked ? likeCount + 1 : Math.max(0, likeCount - 1);
       
+      // Optimistic update
       setLiked(newLiked);
       setLikeCount(newCount);
 
-      const updatedPost = await postService.update(post.id, {
-        ...post,
-        likes: newCount
-      });
+      const updatedPost = await postService.toggleLike(post.id, newLiked);
       
       if (onUpdate) onUpdate(updatedPost);
+      
+      toast.success(newLiked ? 'Post liked!' : 'Post unliked');
     } catch (error) {
+      // Revert optimistic update
       setLiked(!liked);
       setLikeCount(likeCount);
       toast.error('Failed to update like');
     }
+  };
+
+  const handleImageLoad = (imageIndex) => {
+    setImageLoading(prev => ({ ...prev, [imageIndex]: false }));
+  };
+
+  const handleImageError = (imageIndex) => {
+    setImageLoading(prev => ({ ...prev, [imageIndex]: false }));
   };
 
   const handleReaction = async (reaction) => {
@@ -199,7 +208,7 @@ const PostCard = ({
         </div>
 
         {/* Post Content */}
-        <div className="mb-4">
+<div className="mb-4">
           <div 
             className="text-gray-900 whitespace-pre-wrap break-words"
             dangerouslySetInnerHTML={formatContent(
@@ -207,6 +216,47 @@ const PostCard = ({
             )}
           />
         </div>
+
+        {/* Images */}
+        {post.images && post.images.length > 0 && (
+          <div className="mb-4">
+            <div className={`grid gap-2 rounded-lg overflow-hidden ${
+              post.images.length === 1 ? 'grid-cols-1' : 
+              post.images.length === 2 ? 'grid-cols-2' :
+              post.images.length === 3 ? 'grid-cols-3' :
+              'grid-cols-2'
+            }`}>
+              {post.images.slice(0, 4).map((image, index) => (
+                <div 
+                  key={index} 
+                  className={`relative ${
+                    post.images.length === 3 && index === 0 ? 'col-span-2' :
+                    post.images.length > 4 && index === 3 ? 'relative' : ''
+                  }`}
+                >
+                  {imageLoading[index] !== false && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg"></div>
+                  )}
+                  <img
+                    src={image}
+                    alt={`Post image ${index + 1}`}
+                    className="w-full h-48 object-cover rounded-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
+                    onLoad={() => handleImageLoad(index)}
+                    onError={() => handleImageError(index)}
+                    loading="lazy"
+                  />
+                  {post.images.length > 4 && index === 3 && (
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
+                      <span className="text-white text-xl font-semibold">
+                        +{post.images.length - 4}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Reactions Bar */}
         {post.reactions && Object.keys(post.reactions).length > 0 && (
@@ -229,7 +279,7 @@ const PostCard = ({
         )}
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-between">
+<div className="flex items-center justify-between">
           <div className="flex items-center space-x-6">
             {/* Like Button */}
             <motion.button
@@ -238,14 +288,19 @@ const PostCard = ({
               onClick={handleLike}
               className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
                 liked 
-                  ? 'text-accent bg-accent/10' 
-                  : 'text-gray-500 hover:text-accent hover:bg-accent/5'
+                  ? 'text-red-500 bg-red-50 hover:bg-red-100' 
+                  : 'text-gray-500 hover:text-red-500 hover:bg-red-50'
               }`}
             >
-              <ApperIcon 
-                name={liked ? "Heart" : "Heart"} 
-                className={`w-5 h-5 ${liked ? 'fill-current' : ''}`}
-              />
+              <motion.div
+                animate={{ scale: liked ? [1, 1.3, 1] : 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ApperIcon 
+                  name="Heart" 
+                  className={`w-5 h-5 ${liked ? 'fill-current text-red-500' : ''}`}
+                />
+              </motion.div>
               <span className="text-sm font-medium">{likeCount}</span>
             </motion.button>
 

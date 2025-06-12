@@ -50,7 +50,7 @@ const Home = () => {
     loadPosts(1, true);
   }, []);
 
-  const handlePostUpdate = (updatedPost) => {
+const handlePostUpdate = (updatedPost) => {
     setPosts(prev => prev.map(post => 
       post.id === updatedPost.id ? updatedPost : post
     ));
@@ -111,11 +111,15 @@ const Home = () => {
   if (posts.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <EmptyState 
+<EmptyState 
           title="No posts yet"
           description="Be the first to share something with the community!"
           actionLabel="Create Post"
-          onAction={() => window.dispatchEvent(new CustomEvent('openCreateModal'))}
+          onAction={() => {
+            if (typeof window !== 'undefined' && window.CustomEvent) {
+              window.dispatchEvent(new window.CustomEvent('openCreateModal'));
+            }
+          }}
         />
       </div>
     );

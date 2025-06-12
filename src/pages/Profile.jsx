@@ -44,7 +44,7 @@ const Profile = () => {
     }
   }, [userId]);
 
-  const handlePostUpdate = (updatedPost) => {
+const handlePostUpdate = (updatedPost) => {
     setPosts(prev => prev.map(post => 
       post.id === updatedPost.id ? updatedPost : post
     ));
@@ -197,11 +197,15 @@ const Profile = () => {
             {activeTab === 'posts' && (
               <>
                 {posts.length === 0 ? (
-                  <EmptyState 
+<EmptyState 
                     title="No posts yet"
                     description={`${user.name} hasn't shared any posts yet.`}
                     actionLabel="Create Post"
-                    onAction={() => window.dispatchEvent(new CustomEvent('openCreateModal'))}
+                    onAction={() => {
+                      if (typeof window !== 'undefined' && window.CustomEvent) {
+                        window.dispatchEvent(new window.CustomEvent('openCreateModal'));
+                      }
+                    }}
                   />
                 ) : (
                   <div className="space-y-6">

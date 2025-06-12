@@ -32,27 +32,47 @@ export const postService = {
       post.content.toLowerCase().includes(searchTerm) ||
       post.authorName.toLowerCase().includes(searchTerm)
     ).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-  },
+},
 
   async create(postData) {
     await delay(500);
     const newPost = {
       id: `post_${Date.now()}`,
       content: postData.content,
+      images: postData.images || [],
       authorId: postData.authorId,
       authorName: postData.authorName,
       authorAvatar: postData.authorAvatar,
       timestamp: new Date().toISOString(),
       likes: 0,
       comments: 0,
-      reactions: {}
+      reactions: {},
+      isLiked: false
     };
     posts.unshift(newPost);
     return { ...newPost };
   },
 
+  async toggleLike(id, isLiked) {
+    await delay(200);
+    const index = posts.findIndex(p => p.id === id);
+    if (index === -1) {
+      throw new Error('Post not found');
+    }
+    
+    const currentLikes = posts[index].likes || 0;
+    const newLikes = isLiked ? currentLikes + 1 : Math.max(0, currentLikes - 1);
+    
+    posts[index] = { 
+      ...posts[index], 
+      likes: newLikes,
+      isLiked: isLiked
+};
+    return { ...posts[index] };
+  },
+
   async update(id, updates) {
-    await delay(300);
+    await delay(200);
     const index = posts.findIndex(p => p.id === id);
     if (index === -1) {
       throw new Error('Post not found');
