@@ -1,0 +1,77 @@
+[
+  {
+    "id": "post_1",
+    "content": "Just launched my first React project! 🚀 It's amazing how much you can build with modern web technologies. The component-based architecture makes everything so modular and reusable. **Excited** to share it with the community!",
+    "authorId": "user1",
+    "authorName": "Alex Thompson",
+    "authorAvatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "likes": 24,
+    "comments": 8,
+    "reactions": {
+      "love": 12,
+      "like": 8,
+      "wow": 4
+    }
+  },
+  {
+    "id": "post_2",
+    "content": "Beautiful sunset from my office window today! Sometimes it's important to take a moment and appreciate the simple things in life. *Nature* has a way of reminding us what really matters.\n\nWhat's something beautiful you noticed today?",
+    "authorId": "user2",
+    "authorName": "Sarah Chen",
+    "authorAvatar": "https://images.unsplash.com/photo-1494790108755-2616b68b83bb?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T08:45:00Z",
+    "likes": 31,
+    "comments": 12,
+    "reactions": {
+      "love": 18,
+      "like": 10,
+      "wow": 3
+    }
+  },
+  {
+    "id": "post_3",
+    "content": "Had an incredible breakthrough on my **machine learning** project today! After weeks of debugging, finally got the model accuracy above 95%. The key was proper data preprocessing and feature engineering.\n\nFor anyone working on similar projects: don't underestimate the importance of clean data. It makes all the difference!",
+    "authorId": "user3",
+    "authorName": "Mike Johnson",
+    "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-14T16:20:00Z",
+    "likes": 45,
+    "comments": 15,
+    "reactions": {
+      "like": 25,
+      "wow": 15,
+      "love": 5
+    }
+  },
+  {
+    "id": "post_4",
+    "content": "Coffee shop coding session ☕️ There's something magical about working in a busy cafe. The ambient noise actually helps me focus better than complete silence. Currently working on a *design system* for our startup.\n\nWhat's your favorite place to work?",
+    "authorId": "user4",
+    "authorName": "Emily Davis",
+    "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-14T12:15:00Z",
+    "likes": 19,
+    "comments": 6,
+    "reactions": {
+      "love": 8,
+      "like": 9,
+      "laugh": 2
+    }
+  },
+  {
+    "id": "post_5",
+    "content": "Just finished reading **\"The Design of Everyday Things\"** by Don Norman. Such an eye-opening book about user experience and interface design! Every developer and designer should read this.\n\nKey takeaway: Good design is invisible. When users struggle, it's usually a design problem, not a user problem. 🎯",
+    "authorId": "user5",
+    "authorName": "David Wilson",
+    "authorAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-13T20:45:00Z",
+    "likes": 38,
+    "comments": 11,
+    "reactions": {
+      "like": 22,
+      "love": 10,
+      "wow": 6
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "user1",
+    "name": "Alex Thompson",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "joinDate": "2023-08-15T00:00:00Z",
+    "postCount": 23,
+    "bio": "Full-stack developer passionate about React and Node.js. Always learning and sharing knowledge with the community. 🚀"
+  },
+  {
+    "id": "user2",
+    "name": "Sarah Chen",
+    "avatar": "https://images.unsplash.com/photo-1494790108755-2616b68b83bb?w=150&h=150&fit=crop&crop=face",
+    "joinDate": "2023-09-20T00:00:00Z",
+    "postCount": 31,
+    "bio": "UX Designer and photographer. I love creating beautiful, user-friendly experiences and capturing moments in nature. ✨"
+  },
+  {
+    "id": "user3",
+    "name": "Mike Johnson",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "joinDate": "2023-07-10T00:00:00Z",
+    "postCount": 18,
+    "bio": "Data scientist and machine learning engineer. Working on AI solutions that make a positive impact. 🤖"
+  },
+  {
+    "id": "user4",
+    "name": "Emily Davis",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "joinDate": "2023-10-05T00:00:00Z",
+    "postCount": 15,
+    "bio": "Product designer and startup enthusiast. Building the future one interface at a time. Coffee addict ☕️"
+  },
+  {
+    "id": "user5",
+    "name": "David Wilson",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "joinDate": "2023-06-25T00:00:00Z",
+    "postCount": 27,
+    "bio": "Frontend architect and design systems advocate. Helping teams build consistent, scalable user interfaces. 🎨"
+  }
+]

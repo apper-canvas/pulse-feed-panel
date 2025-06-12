@@ -1,0 +1,92 @@
+[
+  {
+    "id": "comment_1",
+    "postId": "post_1",
+    "content": "Congratulations on the launch! React is such a powerful framework. Would love to see what you built!",
+    "authorId": "user2",
+    "authorName": "Sarah Chen",
+    "authorAvatar": "https://images.unsplash.com/photo-1494790108755-2616b68b83bb?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T11:00:00Z",
+    "parentId": null
+  },
+  {
+    "id": "comment_2",
+    "postId": "post_1",
+    "content": "Thanks Sarah! I'll share the link once it's live on production 🚀",
+    "authorId": "user1",
+    "authorName": "Alex Thompson",
+    "authorAvatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T11:15:00Z",
+    "parentId": "comment_1"
+  },
+  {
+    "id": "comment_3",
+    "postId": "post_1",
+    "content": "The component architecture in React really is a game-changer. Makes code so much more maintainable!",
+    "authorId": "user3",
+    "authorName": "Mike Johnson",
+    "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T12:30:00Z",
+    "parentId": null
+  },
+  {
+    "id": "comment_4",
+    "postId": "post_2",
+    "content": "Beautiful shot! I noticed a family of birds building a nest outside my window this morning. Nature is amazing ✨",
+    "authorId": "user4",
+    "authorName": "Emily Davis",
+    "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T09:20:00Z",
+    "parentId": null
+  },
+  {
+    "id": "comment_5",
+    "postId": "post_2",
+    "content": "That sounds wonderful Emily! It's these little moments that make life special 🐦",
+    "authorId": "user2",
+    "authorName": "Sarah Chen",
+    "authorAvatar": "https://images.unsplash.com/photo-1494790108755-2616b68b83bb?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-15T09:45:00Z",
+    "parentId": "comment_4"
+  },
+  {
+    "id": "comment_6",
+    "postId": "post_3",
+    "content": "95% accuracy is impressive! What kind of preprocessing techniques did you use?",
+    "authorId": "user1",
+    "authorName": "Alex Thompson",
+    "authorAvatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-14T17:00:00Z",
+    "parentId": null
+  },
+  {
+    "id": "comment_7",
+    "postId": "post_3",
+    "content": "Mainly outlier detection, normalization, and feature scaling. Also spent a lot of time on feature selection!",
+    "authorId": "user3",
+    "authorName": "Mike Johnson",
+    "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-14T17:30:00Z",
+    "parentId": "comment_6"
+  },
+  {
+    "id": "comment_8",
+    "postId": "post_4",
+    "content": "I'm the same way! Coffee shops have the perfect amount of background noise. What design system are you working on?",
+    "authorId": "user5",
+    "authorName": "David Wilson",
+    "authorAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-14T13:00:00Z",
+    "parentId": null
+  },
+  {
+    "id": "comment_9",
+    "postId": "post_5",
+    "content": "Love that book! Don Norman's insights on usability are timeless. Really changed how I approach interface design.",
+    "authorId": "user2",
+    "authorName": "Sarah Chen",
+    "authorAvatar": "https://images.unsplash.com/photo-1494790108755-2616b68b83bb?w=150&h=150&fit=crop&crop=face",
+    "timestamp": "2024-01-13T21:15:00Z",
+    "parentId": null
+  }
+]
