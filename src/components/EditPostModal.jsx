@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ApperIcon from './ApperIcon';
 import { postService } from '../services';
@@ -94,7 +95,7 @@ const EditPostModal = ({ isOpen, onClose, post, onSave }) => {
 
   if (!isOpen || !post) return null;
 
-  return (
+return ReactDOM.createPortal(
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 0 }}
@@ -104,9 +105,9 @@ const EditPostModal = ({ isOpen, onClose, post, onSave }) => {
         onClick={onClose}
       >
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="bg-white rounded-lg shadow-xl max-w-lg w-full max-h-[80vh] overflow-hidden"
           onClick={(e) => e.stopPropagation()}
           onKeyDown={handleKeyDown}
@@ -219,7 +220,8 @@ const EditPostModal = ({ isOpen, onClose, post, onSave }) => {
           </form>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
